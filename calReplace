@@ -1,0 +1,9 @@
+#!/bin/bash
+//downloads google calendar and replaces calcurse calendar
+//IN GOOGLE: calendar -> calendar settings -> private address (ical) to get privat address
+//borrowed from update_cal from ji woo suh balente84.blogspot.com
+
+wget https://www.google.com/calendar/ical/username/privatelinkaddr/usercalendar.ics -O ~/.calendar/myCal.ics &  // download .ics file
+rm ~/.calcurse/apts &  // clear old calendar
+sleep 2;               // wait for download
+calcurse -i ~/.calendar/myCal.ics;  // import the .ics file to calcurse
