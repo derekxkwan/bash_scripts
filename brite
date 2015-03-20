@@ -1,7 +1,11 @@
 #!/bin/bash
 #change brightness 0-100
-PERCENT=$1
-OUTPUT=$(cat /sys/class/backlight/gmux_backlight/max_brightness);
-PROP=$(($OUTPUT*$1/100));
-echo $PROP > /sys/class/backlight/gmux_backlight/brightness;
-echo $PROP;
+PERCENT=$1;
+if [ "$PERCENT" -gt 5 ];then
+		OUTPUT=$(cat /sys/class/backlight/gmux_backlight/max_brightness);
+		PROP=$(($OUTPUT*$1/100));
+		echo $PROP > /sys/class/backlight/gmux_backlight/brightness;
+		echo "brightness changed to" $PROP;
+	else
+		echo $PERCENT "is too dim!";
+	fi
