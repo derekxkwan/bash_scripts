@@ -1,0 +1,11 @@
+#! /bin/bash
+# disable key repeat for everything EXCEPT backspace, enter AND arrow keys
+
+/usr/bin/xset r on
+/usr/bin/seq 8 255 | /usr/bin/xargs -n 1 /usr/bin/xset -r
+/usr/bin/xset r 22
+/usr/bin/xset r 36
+/usr/bin/xset r 111
+/usr/bin/xset r 113
+/usr/bin/xset r 114
+/usr/bin/xset r 116
