@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+# preserve PATH using sudo
+sudo env "PATH=$PATH" "$@"
