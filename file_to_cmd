@@ -1,0 +1,4 @@
+#!/bin/bash
+# pipe file output to command
+
+while read line; do $2 "$line"; done < $1
