@@ -1,0 +1,18 @@
+#!/bin/bash
+# create desktop files and stick them in the proper place
+
+basename="${1%.*}"
+fullpath=$(readlink -f "$1")
+outpath="$basename.desktop"
+dirpath=$(dirname "$fullpath")
+outpath_ic="$dirpath/$basename.svg"
+outpath_dt="$HOME/.local/share/applications/$outpath"
+truncate -s 0 $outpath
+echo "[Desktop Entry]" >> $outpath_dt
+echo "Encoding=UTF-8" >> $outpath_dt
+echo "Version=1.0" >> $outpath_dt
+echo "Type=Application" >> $outpath_dt
+echo "Terminal=false" >> $outpath_dt
+echo "Exec=$fullpath" >> $outpath_dt
+echo "Name=$basename" >> $outpath_dt
+echo "Icon=$outpath_ic" >> $outpath_dt
