@@ -1,0 +1,12 @@
+#!/bin/bash
+# change files of given arg to new preserving extension (sample.txt to file.txt)
+
+if [ $# -eq 2 ]
+    then
+        for f in $1.*
+            do
+                base=${f%.*}
+                ext=${f#$base.}
+                mv $f $2.$ext
+            done
+fi
