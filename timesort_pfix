@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# rename files by increasing modified date with with given extension and optional prefix
+readarray -t arr < <(stat -c "%Y/%n" *.$1 | sort -t/ -k1,1n -k2 | sed 's@^.*/@@')
+i=0
+n=( $(ls -1q *.$1 | wc -l))
+digits=${#n}
+for f in "${arr[@]}"
+do
+    j=( $(printf "%0${digits}d" $i))
+    if [ -z "$2" ] 
+        then
+            mv $f "${j}-${f}"
+    else
+        mv $f "${2}${j}-${f}"
+    fi
+    i=$((i+1))
+
+
+done
