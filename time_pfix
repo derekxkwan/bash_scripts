@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# prefix timestamp to files with given extension
 for f in *.$1
 do
     mv "$f" "$(date -r "$f" +"%Y%m%d_%H%M%S")-$f"
