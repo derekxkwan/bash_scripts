@@ -1,0 +1,14 @@
+#!/bin/bash
+# run this to play a sound when internet is back up
+python << END
+import subprocess
+pinger = ['ping', '8.8.8.8']
+snd = ['aplay', '/usr/share/sounds/alsa/Front_Center.wav'] #replace with desired sound
+proc = subprocess.Popen(pinger, stdout=subprocess.PIPE)
+for line in proc.stdout:
+    ln = line.decode()
+    if('time=' in ln):
+        proc2 = subprocess.run(snd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print('back online!')
+        break
+END
