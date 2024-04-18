@@ -1,0 +1,5 @@
+#!/bin/bash
+# from hytromo https://askubuntu.com/questions/240702/wget-a-series-of-files-in-order
+while read url; do
+   wget "$url"
+   done < $1
