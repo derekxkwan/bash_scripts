@@ -1,0 +1,4 @@
+#!/bin/bash
+# run a program with a file containing arguments (separated by newlines)
+ARGFILE=`tr '\n' ' ' < ${2}`
+$1 $ARGFILE
