@@ -1,4 +1,4 @@
 #!/bin/bash
 #get arguments of running procs
 
-ps -eo cmd | grep "$1 " | grep -v grep | grep -v sed | sed -e "s/$1 //" | awk '{print $0 }'
+ps -eo cmd | grep "$1 " | grep -v sed | sed -e "s/.*$1 //" | awk '{printf("%s ", $0)}'
