@@ -1,2 +1,2 @@
 #!/bin/sh
-for f in *.$2; do mv $f $1$f; done
+for f in *.$2; do mv "$f" "$1$f"; done
